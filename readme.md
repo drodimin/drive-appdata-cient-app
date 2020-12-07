@@ -24,11 +24,11 @@ CLick link to obtain access token: https://accounts.google.com/o/oauth2/v2/auth?
 ```
 *Click on the link. A browser will open and standard Google prompts will be shown: To select an account and to give permissions to the application. Upon user approval of the prompts the application will listen on port 8085 to receive an access code which it will then exchange for an OAuth token. The token will be saved to a file and these steps will not need to be repeated on consequent runs. Once you see the following result, you can close the browser and return to the terminal in which you are running the application:* 
 
-![Token Recieved](./readme/token_received.png)
+![Token Recieved](./readme/token_received.PNG)
 
 Now a user signed in to Google and gave permissions for the application to manage its own configuration in user's Google drive. The user's drive will now contain a special folder for the application where application can save and read files. 
 
-[drive-appdata-client npm package](https://github.com/drodimin/drive-appdata-client) ) provides methods for performing following operations:
+[drive-appdata-client npm package](https://github.com/drodimin/drive-appdata-client) provides methods for performing following operations:
 
 ## Create File
 ```
