@@ -30,14 +30,18 @@ async function commandPrompt(drive) {
     while (command !== 'quit') {
         if (command === 'find') {
             await findFile(drive);
+        } else if (command === 'findall') {
+            await findAllFiles(drive);
         } else if (command === 'update') {
             await updateFile(drive);
+        } else if (command === 'delete') {
+            await deleteFile(drive);
         } else if (command === 'create') {
             await createFile(drive);
         } else if (command === 'get') {
             await getFile(drive);
         }
-        command = readline.question('Enter command [quit|find|update|create|get]:');
+        command = readline.question('Enter command [quit|find|findall|update|delete|create|get]:');
     }
 }
 
@@ -45,6 +49,19 @@ async function findFile(drive) {
     const filename = readline.question('Enter filename to find: ');
     try {
         const files = await drive.find(filename);
+        console.log(`${files.length} files found`);
+        if (files.length) {
+            console.log(files);
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+async function findAllFiles(drive) {
+    try {
+        const files = await drive.findAll();
         console.log(`${files.length} files found`);
         if (files.length) {
             console.log(files);
@@ -64,6 +81,17 @@ async function updateFile(drive) {
     try {
         const result = await drive.update(fileId, data);
         console.log(result);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+async function deleteFile(drive) {
+    const fileId = readline.question('Enter file id to delete (can be found by calling find command): ');
+    try {
+        // No output
+        await drive.delete(fileId);
     }
     catch (error) {
         console.log(error);
