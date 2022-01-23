@@ -30,8 +30,8 @@ async function commandPrompt(drive) {
     while (command !== 'quit') {
         if (command === 'find') {
             await findFile(drive);
-        } else if (command === 'findall') {
-            await findAllFiles(drive);
+        } else if (command === 'list') {
+            await listFiles(drive);
         } else if (command === 'update') {
             await updateFile(drive);
         } else if (command === 'delete') {
@@ -41,7 +41,7 @@ async function commandPrompt(drive) {
         } else if (command === 'get') {
             await getFile(drive);
         }
-        command = readline.question('Enter command [quit|find|findall|update|delete|create|get]:');
+        command = readline.question('Enter command [quit|find|list|update|delete|create|get]:');
     }
 }
 
@@ -59,9 +59,9 @@ async function findFile(drive) {
     }
 }
 
-async function findAllFiles(drive) {
+async function listFiles(drive) {
     try {
-        const files = await drive.findAll();
+        const files = await drive.list();
         console.log(`${files.length} files found`);
         if (files.length) {
             console.log(files);
