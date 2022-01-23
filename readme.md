@@ -32,7 +32,7 @@ Now a user signed in to Google and gave permissions for the application to manag
 
 ## Create File
 ```
-Enter command [quit|find|findall|update|delete|create|get]:create
+Enter command [quit|find|list|update|delete|create|get]:create
 Enter file name to create: my-sample-data.json
 Enter JSON data for new file with or press ENTER to go with the default {"test":"1"}: {"mynumber":12345"}
 Update file my-sample-data.json
@@ -43,7 +43,7 @@ Update file my-sample-data.json
 ## Find File
 *You can find a file by name*
 ```
-Enter command [quit|find|findall|update|delete|create|get]:find
+Enter command [quit|find|list|update|delete|create|get]:find
 Enter filename to find: my-sample-data.json
 Find file my-sample-data.json
 1 files found
@@ -56,16 +56,20 @@ Find file my-sample-data.json
 ```
 *This command also returns file id which uniquely identifies a file in Google Drive and can be used in subsequent commands*
 
-## Find all Files
-*You can find all files you created*
+## List Files
+*You can list all the files in the appdata folder*
 ```
-Enter command [quit|find|findall|update|delete|create|get]:findall
-Find file my-sample-data.json
-1 files found
+Enter command [quit|find|list|update|delete|create|get]:list
+List all files
+2 files found
 [
   {
     id: '1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ',
     name: 'my-sample-data.json'
+  },
+  {
+    id: '1ENa3SsQyb1a6dG_GBzJaRAXfXL2j58aIMKZqi72nZwtz0tt7fQ',
+    name: 'test.json'
   }
 ]
 ```
@@ -74,7 +78,7 @@ Find file my-sample-data.json
 ## Update File
 * Update file command will update file content and it takes file id as an argument.*
 ```
-Enter command [quit|find|findall|update|delete|create|get]:update
+Enter command [quit|find|list|update|delete|create|get]:update
 Enter file id to update (can be found by calling find command): 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
 Enter JSON data to update file with or press ENTER to go with the default {"test":"1"}: {"newnumber": "4567"}
 Update file 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
@@ -89,7 +93,7 @@ Update file 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
 ## Delete File
 * Delete file command will delete a file and it takes file id as an argument.*
 ```
-Enter command [quit|find|findall|update|delete|create|get]:delete
+Enter command [quit|find|list|update|delete|create|get]:delete
 Enter file id to delete (can be found by calling find command): 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
 Delete file 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
 ```
@@ -97,7 +101,7 @@ Delete file 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
 ## Get File
 *Get file command will return the content of a file and it takes file id as an argument.*
 ```
-Enter command [quit|find|findall|update|delete|create|get]:get
+Enter command [quit|find|list|update|delete|create|get]:get
 Enter fileId: 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
 Getting file 1CkQnohHfkOrWQXGZl_9yUlDIDl3zpgA1viCeGSJGql6EghPyjQ
 { newnumber: '4567' }
